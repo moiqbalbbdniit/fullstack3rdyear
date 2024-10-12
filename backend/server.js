@@ -4,7 +4,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT;
 
-app.get('/jokes',(req,res)=>{
+app.get('/api/jokes',(req,res)=>{
     const jokes = [
         {
             "id": 1,

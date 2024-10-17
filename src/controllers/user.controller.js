@@ -23,13 +23,15 @@ const registerUser = asyncHandler( async (req,res)=>{
         throw new ApiError(400,"All fields are required")
     }
     // checking the user existed or not
-    const userExisted = User.findOne({email})
+    const userExisted = await User.findOne({email})
     if(userExisted){
         throw new ApiError(409,"user existed!!!")
     }
     // file store in local path
-    const avatarLocalpath = req.files?.avatar[0]?.path
-    const coverimageLocalpath = req.files?.coverimage[0]?.path
+    const avatarLocalpath = req.files?.avatar?.[0]?.path;
+    const coverimageLocalpath = req.files?.coverimage?.[0]?.path;
+    console.log("Files received: ", req.files);
+
     if(!avatarLocalpath){
         throw new ApiError(400,"avatar is required")
     }

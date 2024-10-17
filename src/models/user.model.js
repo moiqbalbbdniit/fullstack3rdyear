@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
         type:String, //cloudinary pe upload  hai
         required:true,
     },
+    coverimage:{
+        type:String
+    },
     watchHistory:[
         {
             type:mongoose.Schema.Types.ObjectId,
